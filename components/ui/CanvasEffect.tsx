@@ -224,7 +224,7 @@ interface Uniform {
 }
 
 // The uniforms object passed in has the shape of `{ [key: string]: Uniform }`
-type Uniforms = Record<string, Uniform>;
+//type Uniforms = Record<string, Uniform>;
 
 const getUniforms = () => {
   const preparedUniforms: Record<string, { value: unknown; type: string }> = {};
