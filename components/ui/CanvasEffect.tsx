@@ -210,13 +210,14 @@ const ShaderMaterial = ({
   //test
 
 // Define the type for each uniform (based on possible types like `uniform1f`, `uniform3f`, etc.)
+/*
 type UniformType = 
   | "uniform1f"
   | "uniform3f"
   | "uniform1fv"
   | "uniform3fv"
   | "uniform2f";
-
+*/
 // Define the structure for uniforms (with 'value' and 'type' properties)
 /*
 interface Uniform {
