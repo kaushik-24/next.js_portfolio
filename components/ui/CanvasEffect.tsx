@@ -218,11 +218,12 @@ type UniformType =
   | "uniform2f";
 
 // Define the structure for uniforms (with 'value' and 'type' properties)
+/*
 interface Uniform {
   value: number | number[] | number[][] | THREE.Vector2 | THREE.Vector3;
   type: UniformType;
 }
-
+*/
 // The uniforms object passed in has the shape of `{ [key: string]: Uniform }`
 //type Uniforms = Record<string, Uniform>;
 
