@@ -4,7 +4,6 @@ const MagicButton = ({
   title,
   icon,
   position,
-  handleClick,
   otherClasses,
 }: {
   title: string;
