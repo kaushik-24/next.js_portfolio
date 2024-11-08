@@ -203,57 +203,81 @@ const ShaderMaterial = ({
     }
     lastFrameTime = timestamp;
 
-    const material: any = ref.current.material;
+    const material = ref.current.material as THREE.ShaderMaterial;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
+  //test
 
-  const getUniforms = () => {
-    const preparedUniforms: any = {};
+// Define the type for each uniform (based on possible types like `uniform1f`, `uniform3f`, etc.)
+type UniformType = 
+  | "uniform1f"
+  | "uniform3f"
+  | "uniform1fv"
+  | "uniform3fv"
+  | "uniform2f";
 
-    for (const uniformName in uniforms) {
-      const uniform: any = uniforms[uniformName];
+// Define the structure for uniforms (with 'value' and 'type' properties)
+interface Uniform {
+  value: number | number[] | number[][] | THREE.Vector2 | THREE.Vector3;
+  type: UniformType;
+}
 
-      switch (uniform.type) {
-        case "uniform1f":
-          preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
-          break;
-        case "uniform3f":
-          preparedUniforms[uniformName] = {
-            value: new THREE.Vector3().fromArray(uniform.value),
-            type: "3f",
-          };
-          break;
-        case "uniform1fv":
-          preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
-          break;
-        case "uniform3fv":
-          preparedUniforms[uniformName] = {
-            value: uniform.value.map((v: number[]) =>
-              new THREE.Vector3().fromArray(v)
-            ),
-            type: "3fv",
-          };
-          break;
-        case "uniform2f":
-          preparedUniforms[uniformName] = {
-            value: new THREE.Vector2().fromArray(uniform.value),
-            type: "2f",
-          };
-          break;
-        default:
-          console.error(`Invalid uniform type for '${uniformName}'.`);
-          break;
-      }
+// The uniforms object passed in has the shape of `{ [key: string]: Uniform }`
+type Uniforms = Record<string, Uniform>;
+
+const getUniforms = () => {
+  const preparedUniforms: Record<string, { value: unknown; type: string }> = {};
+
+  // Iterate over all the uniform entries
+  for (const uniformName in uniforms) {
+    const uniform = uniforms[uniformName];
+
+    switch (uniform.type) {
+      case "uniform1f":
+        preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
+        break;
+      case "uniform3f":
+        preparedUniforms[uniformName] = {
+          value: new THREE.Vector3().fromArray(uniform.value as number[]),
+          type: "3f",
+        };
+        break;
+      case "uniform1fv":
+        preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
+        break;
+      case "uniform3fv":
+        preparedUniforms[uniformName] = {
+          value: (uniform.value as number[][]).map((v) =>
+            new THREE.Vector3().fromArray(v)
+          ),
+          type: "3fv",
+        };
+        break;
+      case "uniform2f":
+        preparedUniforms[uniformName] = {
+          value: new THREE.Vector2().fromArray(uniform.value as number[]),
+          type: "2f",
+        };
+        break;
+      default:
+        console.error(`Invalid uniform type for '${uniformName}'.`);
+        break;
     }
+  }
 
-    preparedUniforms["u_time"] = { value: 0, type: "1f" };
-    preparedUniforms["u_resolution"] = {
-      value: new THREE.Vector2(size.width * 2, size.height * 2),
-    }; // Initialize u_resolution
-    return preparedUniforms;
+  // Add default uniforms for time and resolution
+  preparedUniforms["u_time"] = { value: 0, type: "1f" };
+
+  // Cast u_resolution to a THREE.Vector2 to avoid the error
+  preparedUniforms["u_resolution"] = {
+    value: new THREE.Vector2(size.width * 2, size.height * 2), 
+    type: "2f",  // Ensure it's treated as a uniform2f
   };
 
+  return preparedUniforms;
+};
+  //end
   // Shader material
   const material = useMemo(() => {
     const materialObject = new THREE.ShaderMaterial({
@@ -282,7 +306,7 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
-    <mesh ref={ref as any}>
+    <mesh ref={ref}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
     </mesh>
