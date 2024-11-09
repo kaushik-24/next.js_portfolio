@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import animationData from '@/data/confettii.json';
-import MagicButton from './MagicButton';
 import { GlobeDemo } from "./GridGlobe";
 export const BentoGrid = ({
   className,
@@ -64,13 +62,6 @@ export const BentoGridItem = ({
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
-  };
-
-  const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-    });
   };
 
   return (
