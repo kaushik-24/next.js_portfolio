@@ -5,6 +5,7 @@ import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import animationData from '@/data/confettii.json';
+
 import { GlobeDemo } from "./GridGlobe";
 export const BentoGrid = ({
   className,
@@ -47,7 +48,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const [copied, setCopied] = useState<boolean>(false);
+  const [copied, ] = useState<boolean>(false);
   const [isClient, setIsClient] = useState<boolean>(false); // Track if the component is on the client
 
   // Ensure code that uses the `document` API runs only on the client side
@@ -64,6 +65,7 @@ export const BentoGridItem = ({
     },
   };
 
+  
   return (
     <div
       className={cn(
