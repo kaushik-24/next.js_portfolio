@@ -47,13 +47,13 @@ const Hero = () => {
 
           <TextGenerateEffect
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Transforming Concepts into Seamless User Experiences"
+            words="Building Scalable and Efficient Software Solutions"
           />
           <p
             className="text-center md:tracking-wider mb-4 
           text-sm md:text-lg lg:text-2xl"
           >
-            Hi, I&apos;m Kaushik, a front-end developer based in Nepal
+            Hi, I&apos;m Kaushik, a Software Developer based in Nepal
           </p>
           <a href="#about">
             <MagicButton
