@@ -36,7 +36,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 0 0% 20%;
     --foreground: 0 0% 98%;
 
     --card: 240 10% 3.9%;
@@ -84,6 +84,6 @@
   }
 
   .black-gradient {
-    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+    background: linear-gradient(45deg, #00D4FF 0%, #FF007A 100%);
   }
 }

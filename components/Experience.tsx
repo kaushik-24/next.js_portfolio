@@ -7,21 +7,20 @@ const Experience = () => {
     <div className="py-20" id='testimonials'>
     <h1 className='heading'>
       My 
-      <span className='text-purple'> work expericence</span>
+      <span className='text-[#FF007A]'> work expericence</span>
     </h1>
-    <div className='w-full mt-12 grid lg:grid-cols-4
-    grid-cols-1 gap-10'>
+    <div className='flex justify-center items-center w-full mt-12  gap-10'>
       {workExperience.map((card) => (
         <Button 
           key={card.id}
-          borderRadius='1.75rem'
+          borderRadius='1.85rem'
           duration={Math.floor(Math.random() * 10000)
             + 10000
           }
           className='flex-1 text-white
           border-neutral-200 dark:border-slate-800'>
 
-          <div className='flex lg:flex-row flex-col
+          <div className='flex-col
           lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2'>
             <img src={card.thumbnail} alt={card.
               thumbnail} className='lg:w-32 md:w-20
