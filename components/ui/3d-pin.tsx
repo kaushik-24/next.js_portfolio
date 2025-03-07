@@ -30,6 +30,8 @@ export const PinContainer = ({
 
   return (
     <Link
+      target="_blank"
+      rel="noopener noreferrer"
       className={cn(
         "relative group/pin z-50  cursor-pointer",
         containerClassName

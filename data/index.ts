@@ -67,6 +67,7 @@ export const projects = [
     img: "/postly-homepage.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", ],
     link: "https://blog-post-main-uenr.vercel.app/",
+    git:"https://github.com/kaushik-24/blog-post-main",
   },
   {
     id: 3,
@@ -75,6 +76,7 @@ export const projects = [
     img: "/ecommerce.png",
     iconLists: ["/js.svg"],
     link: "https://e-commerce-storefront-seven.vercel.app/",
+    git:"https://github.com/kaushik-24/E-commerce-Storefront",
   },
   {
     id: 4,
@@ -83,6 +85,7 @@ export const projects = [
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "https://apple-ashy-three.vercel.app/",
+    git:"https://github.com/kaushik-24/Apple",
   },
 ];
 
@@ -98,7 +101,13 @@ export const workExperience = [
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
- 
+  {
+    id: 2,
+    title: "Freelance",
+    desc: "Providing websites to clients",
+    className: "md:col-span-4",
+    thumbnail: "/exp4.svg",
+  },
 ];
 
 export const socialMedia = [

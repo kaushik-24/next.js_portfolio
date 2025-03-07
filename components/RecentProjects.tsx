@@ -1,7 +1,9 @@
+
 import { projects } from '@/data'
 import React from 'react'
 import { PinContainer } from './ui/3d-pin'
 import { FaLocationArrow } from 'react-icons/fa'
+import GitHubLink from './ui/GitHubLink'
 
 const RecentProjects = () => {
   return (
@@ -12,11 +14,11 @@ const RecentProjects = () => {
       </h1>
       <div className='flex flex-wrap items-center
       justify-center p-4 gap-x-24 gap-y-8 mt-10'>
-        {projects.map(({id, title, des, img, iconLists, link,
+        {projects.map(({id, title, des, img, iconLists, link, git,
         }) => (
           <div key={id} className='sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem]
            flex items-center justify-center sm:w-[570px] w-[80vw]'>
-            <PinContainer title={link} href={link}>
+            <PinContainer title={link} href={link} >
               <div className='relative flex items-center
               justify-center sm:w-[570px] w-[80vw] overflow-hidden h-[30vh] sm:h-[40vh]  mb-10'>
                 <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162D]'>
@@ -49,8 +51,8 @@ const RecentProjects = () => {
                     </div>
                   ))}
                 </div>
-
-                <div className='flex justify-center items-center'>
+                  {git && <GitHubLink git={git} />} 
+                  <div className='flex justify-center items-center'>
                   <p className='flex lg:text-xl
                   md:text-xs text-sm text-[#FF007A]'>Check Live Site</p>
                   <FaLocationArrow className='ms-3' 
