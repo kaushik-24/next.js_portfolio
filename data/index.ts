@@ -70,11 +70,11 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Amazon clone",
+    title: "E-commerce StoreFront",
     des: "Using vanilla-javascript recreated the e-commerce website with order and buy features. ",
-    img: "/amazon-project-2.png",
+    img: "/ecommerce.png",
     iconLists: ["/js.svg"],
-    link: "https://amazon-clone-woad-three.vercel.app/",
+    link: "https://e-commerce-storefront-seven.vercel.app/",
   },
   {
     id: 4,
