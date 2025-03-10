@@ -59,14 +59,23 @@ export const gridItems = [
   ];
 
 export const projects = [
+  {
+    id: 1,
+    title: "Snappy - Frontend Framework",
+    des: "Lightweight framework to mimic some features of existing frameworks.",
+    img: "/framework.png",
+    iconLists: ["/js.svg"],
+    link: "https://front-end-frame-work-five.vercel.app/",
+    git: "https://github.com/kaushik-24/FrontEnd-FrameWork",
+  },
    {
     id: 2,
     title: "Postly - BlogPost Website",
-    des: "Share your thoughts on a blog that can reach others",
+    des: "Share your thoughts on a blog that can reach others.",
     img: "/postly-homepage.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", ],
     link: "https://blog-post-main-uenr.vercel.app/",
-    git:"https://github.com/kaushik-24/blog-post-main",
+    git: "https://github.com/kaushik-24/blog-post-main",
   },
   {
     id: 3,
